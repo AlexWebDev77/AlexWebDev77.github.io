@@ -1,0 +1,157 @@
+<html>
+<head>
+<title>Alex's site</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico"> 
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+
+<header>
+<h1>Welcome to Alex's site</h1>    
+<h4>A simple website to teach you about web development</h4>
+</header>
+<br>
+<hr>
+<div style="display: flex; overflow:auto;">
+<div id="headers_div">
+    <ul>
+    <li><h1>This is an H1 header</h1></li>
+    <li><h2>This is an H2 header</h2></li>
+    <li><h3>This is an H3 header</h3></li>
+    <li><h4>This is an H4 header</h4></li>
+    <li><h5>This is an H5 header</h5></li>
+    <li><h6>This is an H6 header</h6></li>
+    <li><p>This is a paragraph</p></li>
+    <li><u>This text is underlined</u><br><br></li>
+    <li><b>This text is bold</b></li>
+    <li><p style='color:blue'>This text is in blue</p></li>
+    <li><p style='color:red'>And this text is in red</p></li>
+    </ul>
+</div>
+
+<div id="interactions_div">
+    <div class="image_div"  onclick="pikachu()">
+    <img src="pikachu.jpg" style="width:75%">
+    <p>click me</p>
+    </div>
+
+    <div class="image_div" ondblclick="bulbusaur()">
+        <img src="bulbusaur.jpg" style="width:75%">
+        <p>double click me</p>
+    </div>
+
+    <div class="image_div" ondragend="squirtle()">
+        <img src="squirtle.jpg" style="width:75%">
+        <p>drag me</p>
+    </div>
+
+    <div class="image_div" onmouseover="charmander()">
+        <img src="charmander.jpg" style="width:75%; height:90%;">
+        <p>move your mouse over me</p>
+    </div>
+
+
+<p id="team" onloadstart="get_team()">Your team: Pikachu</p>
+</div>
+</div>
+
+<hr>
+
+<div id="animation_div">
+    <img id="pokeball" src="pokeball.jpg" height=100%>
+</div>
+<p id="poke_animation_label"> Try pressing the left key, right key or space </p>
+
+<hr>
+<center>
+<a href='pokemon.html' width=100%><button width=25%>Click me</button></a>
+</center>
+<hr>
+<canvas height='500' width='500' id='mycanvas'></canvas>
+<script type="text/javascript">
+function clear() {
+    context.fillStyle = "white";
+    context.fillRect(0,0,1000,1000);
+}
+
+function radian(a) {
+    var rad = Math.PI/180;
+    return rad * a;
+}
+
+function drawSeconds(i, unit) {
+    var radius = unit;
+    context.beginPath();
+    context.moveTo(unit, unit);
+    context.strokeStyle = "blue";
+    context.lineTo(radius*Math.cos(radian(i*6) - Math.PI/2)+unit, radius*Math.sin(radian(i*6) - Math.PI/2)+unit);
+    context.stroke(); 
+}
+
+
+function drawMinutes(i, unit) {
+    var radius = unit * 0.8;
+    context.beginPath();
+    context.moveTo(unit, unit);
+    context.strokeStyle = "red";
+    context.lineTo((radius*Math.cos(radian(i*6) - Math.PI/2)+unit), (radius*Math.sin(radian(i*6) - Math.PI/2)+unit));
+    context.stroke(); 
+}
+
+function drawHours(i, unit) {
+    i = i * 5;
+    var radius = unit * 0.5;
+    context.beginPath();
+    context.moveTo(unit, unit);
+    context.strokeStyle = "green";
+    context.lineTo((radius*Math.cos(radian(i*6) - Math.PI/2)+unit), (radius*Math.sin(radian(i*6) - Math.PI/2)+unit));
+    context.stroke(); 
+}
+function drawClock() {
+    var unit = canvas.getAttribute('height') / 2;
+    var radius = unit;
+    
+    clear();
+    context.beginPath();
+    context.strokeStyle = "black";
+    context.arc(unit, unit, unit, 0, Math.PI*2);
+    context.stroke();
+    var s = new Date().getSeconds();
+    var m = new Date().getMinutes();
+    var h = new Date().getHours() % 12;
+    drawSeconds(s, unit);
+    drawMinutes(m, unit);
+    drawHours(h, unit);
+    //console.log(h,m,s);
+    context.beginPath();
+    context.strokeStyle = "black";
+    context.font = "25px Georgia";
+    context.fillStyle = "yellow";
+    
+    var time_string = (h == 0 ? 12 : h) + ":" + m + ":" + s;
+
+    context.fillText(time_string, 25, (unit*2)-25);
+    context.strokeText(time_string, 25, (unit*2)-25);
+
+
+    
+     
+}
+
+
+var canvas = document.getElementById("mycanvas");
+var context = canvas.getContext("2d");
+setInterval(drawClock, 50);
+
+
+
+</script>
+<iframe src='javascriptClass.html' width='650px' height='650px'></iframe>
+
+</body>
+
+<footer>
+<center><p>Made by Alex Robic</p></center>
+</footer>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <title>Pokemon page</title>
+    You found a secondary link
+
+    <script type="text/javascript">
+        var i = 5;
+        function countdown() {
+            console.log("Counting down");
+            if(i != 0) {
+                document.write(i + ' ');
+            }
+            
+            i = i - 1;
+            if(i == 0) {
+                document.write("Taking you back to previous page");
+            }
+        }
+        function go() {
+            var interval = setInterval(countdown, 1000);
+            setTimeout(function f() {window.location.href = "index.html"}, 6000);
+        }
+        go();
+    </script>
+
+
+
+</html>

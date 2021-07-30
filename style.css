@@ -1,0 +1,84 @@
+body {
+    background-color: rgba(118, 255, 209, 0.993);
+    font-family: sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: aqua;
+    padding: 0.5%;
+    text-decoration: underline;
+}
+
+#headers_div {
+    text-align: center;
+    background-color: lightcoral;
+    padding: 0.5%;
+    width: 49%;
+    float:left;
+}
+
+hr {
+    border-top: 2px dashed red;
+}
+
+#interactions_div {
+    background-color: lightgoldenrodyellow;
+    padding: 0.5%;
+    width: 49%;
+    float:left;
+}
+
+.image_div {
+    text-align: center;
+    width: 49%;
+    background-color: lightseagreen;
+    display: inline-block;
+    overflow: hidden;
+    border: 1px red solid;
+    padding: 0.1%;
+    margin-top: 1%;
+    height: 45%;
+}
+
+#animation_div {
+    height:20%;
+    overflow: auto;
+    background-color: white;
+    position: relative;
+}
+
+#pokeball {
+    position: absolute;
+    left: 0px;
+}
+
+button {
+    border: 2px salmon dotted;
+    font-size: large;
+    background-color: lightgreen;
+}
+
+#poke_animation_label {
+    text-transform: capitalize;
+    width: 100%;
+    text-align:center;
+}
+
+::first-letter {
+    color: blue;
+}
+
+::selection {
+    background-color: chartreuse;
+}
+
+ul {
+    list-style-type: none;
+    list-style-image: url('mypika.png');
+}
+
+#mycanvas {
+    border: 2px red solid;
+    background-color: white;
+}
